@@ -3,18 +3,21 @@
 ## Procedure
 ### Ansible Installation (Centos8-stream)
 
-```:Installing Python3.9
-dnf -y module install python39
-```
+1. Installing Python3.9
+    ```:Installing Python3.9
+    dnf -y module install python39
+    ```
 
-```:Installing sshpass
-dnf -y install sshpass
-```
+2. Installing sshpass
+    ```:Installing sshpass
+    dnf -y install sshpass
+    ```
 
-```:Installing Ansible by PIP
-pip3 install ansible
-ansible --version
-```
+3. Installing Ansible by PIP
+    ```:Installing Ansible by PIP
+    pip3 install ansible
+    ansible --version
+    ```
 
 ### Execution
 1. Linux 1st step configurations
