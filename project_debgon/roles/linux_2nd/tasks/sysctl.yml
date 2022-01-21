@@ -1,0 +1,9 @@
+- name: /etc/sysctl.conf configurations
+  ansible.posix.sysctl:
+    name: "{{ item.sysctl_name }}"
+    value: "{{ item.sysctl_value }}"
+    state: present
+  with_items:
+    - "{{ linux_sysctl_info }}"
+  become: yes
+

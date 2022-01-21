@@ -1,0 +1,15 @@
+# SELinux (roles/linux/tasks/selinux.yml)
+linux_selinux_state: 'disabled'
+
+# Timezone (roles/linux/tasks/timezone.yml)
+linux_timezone_name: 'Asia/Singapore'
+
+# Package Repository (roles/linux/tasks/repo.yml)
+linux_repo_basedir: /media
+linux_repo_gpgkey: RPM-GPG-KEY-redhat-release
+
+# Sysstat configurations
+sysstat_config:
+  - { config_file: 'usr/lib/systemd/system/sysstat-collect.service', config_owner: 'root', config_group: 'root', config_mode: '0644' }
+  - { config_file: 'usr/lib/systemd/system/sysstat-collect.timer', config_owner: 'root', config_group: 'root', config_mode: '0644' }
+

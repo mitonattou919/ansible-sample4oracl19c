@@ -1,0 +1,1 @@
+KERNEL=="sd[c-z]1",ACTION=="add|change",OWNER="grid",GROUP="asmadmin",MODE="0660"

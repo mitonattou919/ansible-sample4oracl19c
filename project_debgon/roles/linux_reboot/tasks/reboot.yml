@@ -1,0 +1,4 @@
+- name: OS reboot
+  ansible.builtin.reboot:
+  become: yes
+

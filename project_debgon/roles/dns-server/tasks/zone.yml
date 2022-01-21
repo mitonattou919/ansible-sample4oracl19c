@@ -1,0 +1,6 @@
+- name: /var/named/localzone configuration
+  ansible.builtin.copy:
+    src: var/named/localzone
+    dest: /var/named/localzone
+  become: yes
+

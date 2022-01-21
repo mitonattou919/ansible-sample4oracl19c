@@ -1,0 +1,10 @@
+- name: DNS Client configurations
+  community.general.nmcli:
+    conn_name: "{{ item.conn_name }}"
+    dns4: "{{ item.dns4 }}"
+    dns4_search: "{{ item.dns4_search }}"
+    state: present
+  with_items:
+    - "{{ linux_dns_client_info }}"
+  become: yes
+

@@ -1,0 +1,8 @@
+# Hostname (roles/linux/tasks/hostname.yml)
+linux_host_name: 'node1'
+
+# Network Interface (roles/linux/tasks/nmcli.yml)
+linux_nmcli_info:
+  - { conn_name: 'enp0s3', ifname: 'enp0s3', type: 'ethernet', autoconnect: 'yes', method4: 'manual', ip4: '192.168.56.101/24', method6: 'disabled', mtu: '1400' }
+  - { conn_name: 'enp0s8', ifname: 'enp0s8', type: 'ethernet', autoconnect: 'yes', method4: 'manual', ip4: '192.168.100.101/24', method6: 'disabled', mtu: '1400'  }
+

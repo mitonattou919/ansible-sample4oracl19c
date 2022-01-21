@@ -1,0 +1,7 @@
+- name: DVD unmount
+  ansible.posix.mount:
+    path: "{{ linux_repo_basedir }}"
+    state: unmounted
+  become: yes
+  changed_when: false
+

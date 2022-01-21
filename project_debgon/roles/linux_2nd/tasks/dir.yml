@@ -1,0 +1,11 @@
+- name: Directorie configurations
+  ansible.builtin.file:
+    path: "{{ item.dir_path }}"
+    state: directory
+    owner: "{{ item.dir_owner }}"
+    group: "{{ item.dir_group }}"
+    mode: "{{ item.dir_mode }}"
+  with_items:
+    - "{{ linux_dir_info }}"
+  become: yes
+

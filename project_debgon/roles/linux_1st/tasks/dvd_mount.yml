@@ -1,0 +1,10 @@
+- name: DVD mount
+  ansible.posix.mount:
+    path: "{{ linux_repo_basedir }}"
+    src: /dev/sr0
+    fstype: iso9660
+    opts: ro,noauto
+    state: mounted
+  become: yes
+  changed_when: false
+

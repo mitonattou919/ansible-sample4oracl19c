@@ -1,0 +1,5 @@
+- name: Timezone configuration
+  community.general.timezone:
+    name: "{{ linux_timezone_name }}"
+  become: yes
+

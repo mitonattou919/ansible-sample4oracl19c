@@ -1,0 +1,5 @@
+- name: SELinux configuration
+  ansible.posix.selinux:
+    state: "{{ linux_selinux_state }}"
+  become: yes
+

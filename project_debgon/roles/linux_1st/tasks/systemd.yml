@@ -1,0 +1,8 @@
+- name: Service configuration
+  ansible.builtin.systemd:
+    name: "{{ item.service_name }}"
+    enabled: "{{ item.service_enabled }}"
+  with_items:
+    - "{{ linux_systemd_info }}"
+  become: yes
+

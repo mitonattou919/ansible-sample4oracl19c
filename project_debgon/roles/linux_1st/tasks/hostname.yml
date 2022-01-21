@@ -1,0 +1,5 @@
+- name: Hostname configuration
+  ansible.builtin.hostname:
+    name: "{{ linux_host_name }}"
+  become: yes
+

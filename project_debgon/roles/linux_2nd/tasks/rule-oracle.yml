@@ -1,0 +1,9 @@
+- name: /etc/hosts configuration
+  ansible.builtin.copy:
+    src: etc/udev/rules.d/99-oracle.rules
+    dest: /etc/udev/rules.d/99-oracle.rules
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
+

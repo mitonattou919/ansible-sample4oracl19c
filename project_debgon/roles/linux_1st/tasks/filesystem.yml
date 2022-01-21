@@ -1,0 +1,8 @@
+- name: filesystem configuration
+  community.general.filesystem:
+    dev: "{{ item.fs_dev }}"
+    fstype: "{{ item.fs_type }}"
+  with_items:
+    - "{{ linux_fs_info }}"
+  become: yes
+

@@ -1,0 +1,8 @@
+- import_tasks: group.yml
+- import_tasks: user.yml
+- import_tasks: dir_mountpoint.yml
+- import_tasks: fstab.yml
+- import_tasks: dir.yml
+- import_tasks: sysctl.yml
+- import_tasks: ulimit.yml
+- import_tasks: rule-oracle.yml

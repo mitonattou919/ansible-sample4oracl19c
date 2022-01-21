@@ -1,0 +1,17 @@
+- import_tasks: selinux.yml
+- import_tasks: timezone.yml
+- import_tasks: hostname.yml
+- import_tasks: hosts.yml
+- import_tasks: nmcli.yml
+- import_tasks: dns_client.yml
+#- import_tasks: route.yml
+- import_tasks: repo.yml
+- import_tasks: dvd_mount.yml
+- import_tasks: dnf.yml
+- import_tasks: dvd_unmount.yml
+- import_tasks: systemd.yml
+- import_tasks: parted.yml
+- import_tasks: vg.yml
+- import_tasks: lvol.yml
+- import_tasks: filesystem.yml
+

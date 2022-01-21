@@ -1,0 +1,10 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+192.168.56.128 ansible
+
+192.168.56.101 node1.local node1
+192.168.56.102 node2.local node2
+192.168.56.111 node1-vip.local node1-vip
+192.168.56.112 node2-vip.local node2-vip
+

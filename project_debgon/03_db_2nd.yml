@@ -1,0 +1,4 @@
+- hosts: db
+  roles:
+    - role: linux_2nd
+      tags: linux_2nd

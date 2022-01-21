@@ -1,0 +1,7 @@
+- name: Service configuration
+  ansible.builtin.systemd:
+    name: "named"
+    enabled: "yes"
+    state: "started"
+  become: yes
+

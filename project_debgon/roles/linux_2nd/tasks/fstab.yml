@@ -1,0 +1,12 @@
+- name: /etc/fstab configurations
+  ansible.posix.mount:
+    path: "{{ item.path }}"
+    src: "{{ item.src }}"
+    fstype: "{{ item.fstype }}"
+    opts: "{{ item.opts }}"
+    boot: "{{ item.boot }}"
+    state: mounted
+  with_items:
+    - "{{ linux_fstab_info }}"
+  become: yes
+

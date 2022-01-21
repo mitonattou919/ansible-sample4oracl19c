@@ -1,0 +1,10 @@
+- name: LVM2 - LVOL configurations
+  community.general.lvol:
+    vg: "{{ item.vg_name }}"
+    lv: "{{ item.lvol_name }}"
+    size: "{{ item.size }}"
+    state: present
+  with_items:
+    - "{{ linux_lvol_info }}"
+  become: yes
+

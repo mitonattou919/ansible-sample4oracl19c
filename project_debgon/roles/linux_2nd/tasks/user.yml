@@ -1,0 +1,13 @@
+- name: User configurations
+  ansible.builtin.user:
+    name: "{{ item.user_name }}"
+    uid: "{{ item.user_id }}"
+    group: "{{ item.user_group }}"
+    groups: "{{ item.user_groups }}"
+    password: "{{ item.user_password }}"
+    generate_ssh_key: "{{ item.sshkey_gen }}"
+    state: present
+  with_items:
+    - "{{ linux_user_info }}"
+  become: yes
+

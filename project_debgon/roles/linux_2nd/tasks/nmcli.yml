@@ -1,0 +1,16 @@
+- name: Network interface configurations
+  community.general.nmcli:
+    conn_name: "{{ item.conn_name }}"
+    ifname: "{{ item.ifname }}"
+    type: "{{ item.type }}"
+    autoconnect: "{{ item.autoconnect }}"
+    method4: "{{ item.method4 }}"
+    ip4: "{{ item.ip4 }}"
+#    gw4: "{{ item.gw4 }}"
+    method6: "{{ item.method6 }}"
+    mtu: "{{ item.mtu }}"
+    state: present
+  with_items:
+    - "{{ linux_nmcli_info }}"
+  become: yes
+

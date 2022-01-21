@@ -1,0 +1,10 @@
+- name: partition configuration
+  community.general.parted:
+    device: "{{ item.part_devname }}"
+    number: "{{ item.part_number }} "
+    label: "{{ item.part_label }}"
+    state: present
+  with_items:
+    - "{{ linux_part_info }}"
+  become: yes
+

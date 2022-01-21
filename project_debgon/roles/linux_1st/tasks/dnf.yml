@@ -1,0 +1,6 @@
+- name: Packages installation
+  ansible.builtin.dnf:
+    name: "{{ linux_packages }}"
+    state: latest
+  become: yes
+

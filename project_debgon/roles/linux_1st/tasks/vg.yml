@@ -1,0 +1,10 @@
+- name: LVM2 - VG configurations
+  community.general.lvg:
+    pesize: "{{ item.pesize }}"
+    vg: "{{ item.vg_name }}"
+    pvs: "{{ item.pvs }}"
+    state: present
+  with_items:
+    - "{{ linux_vg_info }}"
+  become: yes
+

@@ -1,0 +1,9 @@
+- name: Group configurations
+  ansible.builtin.group:
+    name: "{{ item.group_name }}"
+    gid: "{{ item.group_id }}"
+    state: present
+  with_items:
+    - "{{ linux_group_info }}"
+  become: yes
+

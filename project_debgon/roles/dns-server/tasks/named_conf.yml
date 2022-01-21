@@ -1,0 +1,6 @@
+- name: /etc/named.conf configuration
+  ansible.builtin.copy:
+    src: etc/named.conf
+    dest: /etc/named.conf
+  become: yes
+

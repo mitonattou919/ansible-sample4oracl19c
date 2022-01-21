@@ -1,0 +1,9 @@
+- name: SSH Public-Keys configurations
+  ansible.posix.authorized_key:
+    user: "{{ item.user_name }}"
+    state: present
+    key: "{{ lookup('file', item.key_file_name) }}"
+  with_items:
+    - "{{ linux_ssh_keys_info }}"
+  become: yes
+
