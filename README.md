@@ -21,7 +21,7 @@
 
 1. Installing Ansible by PIP
     ```:Installing Ansible by PIP
-    python -m pip install ansible-core
+    python -m pip install ansible
     ansible --version
     ```
 
