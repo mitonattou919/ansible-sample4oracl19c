@@ -1,4 +1,4 @@
-- hosts: db
+- hosts: all
   roles:
     - role: linux_reboot
       tags: linux_reboot
