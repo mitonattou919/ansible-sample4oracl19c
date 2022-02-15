@@ -8,16 +8,32 @@
     dnf -y module install python39
     ```
 
-2. Installing sshpass
+1. Activate Python3.9
+    ```:
+    alternatives --config python
+    =>choose python3.9 and press ENTER key.
+    ```
+
+1. Installing sshpass
     ```:Installing sshpass
     dnf -y install sshpass
     ```
 
-3. Installing Ansible by PIP
+1. Installing Ansible by PIP
     ```:Installing Ansible by PIP
-    pip3 install ansible
+    python -m pip install ansible-core
     ansible --version
     ```
+
+### Preparing
+1. Modify Excel file.
+2. Upload Excel file to Ansible Server.
+3. Create inventory and host-variables
+    ```:
+    cd projecto_debgon
+    python create_config.py xxx.xlsx
+    ```
+
 
 ### Execution
 1. Linux 1st step configurations
