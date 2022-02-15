@@ -264,7 +264,7 @@ for value in values:
             if i >= 4 and value[i] is not None:
                 if value[i] == env_values[i - 4][0]:
                     text = ('\n# Package installations (roles/linux_1st/tasks/dnf.yml)\n'
-                            + 'linux_package:\n')
+                            + 'linux_packages:\n')
                     write_file(var_dir_host + '/' + str(env_values[i - 4][0]) + '.yml', text)
                 else:
                     print('Error: Target host is not match!')
