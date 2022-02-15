@@ -25,10 +25,19 @@
     ansible --version
     ```
 
+1. Installing OpenPyXl by PIP
+    ```:Installing Ansible by PIP
+    python -m pip install openpyxl
+    python -m pip list | grep openpyxl
+    ```
+
+
 ### Preparing
 1. Modify Excel file.
-2. Upload Excel file to Ansible Server.
-3. Create inventory and host-variables
+
+1. Upload Excel file to Ansible Server.
+
+1. Create inventory and host-variables
     ```:
     cd projecto_debgon
     python create_config.py xxx.xlsx
@@ -39,7 +48,7 @@
 1. Linux 1st step configurations
     ```:
     cd projecto_debgon
-    ansible-playbook -i hosts 01_db_1st.yml
+    ansible-playbook -i <inventory-file> -l <target-hostname> 01_db_1st.yml
     ```
 
     - SELinux configuration
@@ -59,12 +68,12 @@
 
 2. Then reboot the system
     ```:
-    ansible-playbook -i hosts 02_db_reboot.yml
+    ansible-playbook -i <inventory-file> -l <target-hostname> 02_db_reboot.yml
     ```
 
 3. Linux 2nd step configurations
     ```:
-    ansible-playbook -i hosts 03_db_2nd.yml
+    ansible-playbook -i <inventory-file> -l <target-hostname> 03_db_2nd.yml
     ```
 
     - Group configurations
@@ -78,7 +87,7 @@
 
 4. Then reboot the system
     ```:
-    ansible-playbook -i hosts 02_db_reboot.yml
+    ansible-playbook -i <inventory-file> -l <target-hostname> 02_db_reboot.yml
     ```
 
 
