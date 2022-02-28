@@ -1,0 +1,59 @@
+- hosts: all
+  vars:
+    test_files_info:
+     - { file: '/etc/selinux/config', parm: '^\s*SELINUX\s*=\s*disabled\s*$' }
+     - { file: '/etc/sysconfig/network-scripts/ifcfg-enp0s3', parm: '^\s*IPADDR\s*=\s*192.168.56.201\s*$' }
+     - { file: '/etc/sysconfig/network-scripts/ifcfg-enp0s3', parm: '^\s*PREFIX\s*=\s*24\s*$' }
+
+    test_command_info:
+     - { cmd: 'sysctl -A', out_file: 'sysctl_A', parm: '^\s*vm.swappiness\s*=\s*30\s*$' }
+     - { cmd: 'sysctl -A', out_file: 'sysctl_A', parm: '^\s*vm.panic_on_oom\s*=\s*0\s*$' }
+     - { cmd: 'sysctl -A', out_file: 'sysctl_A', parm: '^\s*vm.zone_reclaim_mode\s*=\s*0\s*$' }
+     - { cmd: 'timedatectl --value', out_file: 'timedatectl', parm: '^\s*Time zone\s*:\s*Asia/Singapore (+08, +0800)\s*$' }
+     - { cmd: 'hostnamectl', out_file: 'hostnamectl', parm: '^\s*Static hostname\s*:\s*ap1\s*$' }
+
+  tasks:
+    - name: Get command output
+      ansible.builtin.command: "{{ item.cmd }}"
+      register: command_result
+      with_items:
+        - "{{ test_command_info }}"
+      become: yes
+      changed_when: false
+      check_mode: no
+
+    - name: Create output directory
+      ansible.builtin.file:
+        path: /tmp/command_output
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+      changed_when: false
+
+    - name: Print command output
+      ansible.builtin.copy:
+        content: "{{ item.stdout }}"
+        dest: "/tmp/command_output/{{ item.item.out_file }}"
+      with_items:
+        - "{{ command_result.results }}"
+      changed_when: false
+
+    - name: Test - configuration files
+      ansible.builtin.shell: |
+        grep "{{ item.parm }}" "{{ item.file }}"
+      with_items:
+        - "{{ test_files_info }}"
+      become: yes
+      changed_when: false
+      check_mode: no
+
+    - name: Test -  command output
+      ansible.builtin.shell: |
+        grep "{{ item.parm }}" "/tmp/command_output/{{ item.out_file }}"
+      with_items:
+        - "{{ test_command_info }}"
+      become: yes
+      changed_when: false
+      check_mode: no
+
